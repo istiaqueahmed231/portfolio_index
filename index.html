@@ -4,76 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
-
   <title>Istiaque Ahmed - Android Developer Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
+
+ <style>
   html {
     scroll-behavior: smooth;
   }
-
-  /* Optional scrollbar hide styling */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
 </style>
-<script>
-  function toggleMobileMenu() {
-    const menu = document.getElementById("mobile-nav-menu");
-    menu.classList.toggle("hidden");
-  }
-</script>
 
 
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-nav-menu");
+      menu.classList.toggle("hidden");
+    }
+
+    function scrollProjects(direction) {
+      const container = document.getElementById("projects-container");
+      const scrollAmount = 320;
+      container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
+      });
+    }
+  </script>
 </head>
 
-<script>
-  function scrollProjects(direction) {
-    const container = document.getElementById("projects-container");
-    const scrollAmount = 320; // same as project card width (w-80)
-    container.scrollBy({
-      left: direction * scrollAmount,
-      behavior: "smooth"
-    });
-  }
-</script>
-
 <body class="font-sans text-gray-800">
-<header class="flex justify-between items-center p-6 shadow-md relative">
-  <h1 class="text-xl font-bold" style="font-family: 'Cinzel', serif;">
-    Istiaque Ahmed
-  </h1>
+  <header class="flex justify-between items-center p-6 shadow-md relative">
+    <h1 class="text-xl font-bold" style="font-family: 'Cinzel', serif;">Istiaque Ahmed</h1>
 
-  <!-- Desktop Nav -->
-  <nav class="hidden md:flex space-x-6">
-    <a href="#projects" class="hover:text-blue-500">Projects</a>
-    <a href="#about" class="hover:text-blue-500">About</a>
-    <a href="#skills" class="hover:text-blue-500">Skills</a>
-  </nav>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#projects" class="hover:text-blue-500">Projects</a>
+      <a href="#about" class="hover:text-blue-500">About</a>
+      <a href="#skills" class="hover:text-blue-500">Skills</a>
+    </nav>
 
-  <!-- Contact Button -->
-  <a href="#contact" class="hidden md:inline-block bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800">
-    Contact Me
-  </a>
+    <!-- Contact Button -->
+    <a href="#contact" class="hidden md:inline-block bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800">
+      Contact Me
+    </a>
 
-  <!-- Hamburger Icon (Mobile) -->
-  <button class="md:hidden text-2xl focus:outline-none" onclick="toggleMobileMenu()">
-    <i class="fas fa-bars"></i>
-  </button>
+    <!-- Hamburger Icon (Mobile) -->
+    <button class="md:hidden text-2xl focus:outline-none" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-nav-menu" class="hidden absolute top-full right-4 bg-white shadow-md rounded-md w-40 py-2 z-50">
-    <a href="#projects" class="block px-4 py-2 hover:bg-gray-100">Projects</a>
-    <a href="#about" class="block px-4 py-2 hover:bg-gray-100">About</a>
-    <a href="#skills" class="block px-4 py-2 hover:bg-gray-100">Skills</a>
-    <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 text-blue-600">Contact Me</a>
-  </div>
-</header>
+    <!-- Mobile Menu -->
+    <div id="mobile-nav-menu" class="hidden absolute top-full right-4 bg-white shadow-md rounded-md w-40 py-2 z-50">
+      <a href="#projects" class="block px-4 py-2 hover:bg-gray-100">Projects</a>
+      <a href="#about" class="block px-4 py-2 hover:bg-gray-100">About</a>
+      <a href="#skills" class="block px-4 py-2 hover:bg-gray-100">Skills</a>
+      <a href="#contact" class="block px-4 py-2 hover:bg-gray-100 text-blue-600">Contact Me</a>
+    </div>
+  </header>
+
 
 
 <section class="flex flex-col-reverse md:flex-row items-center justify-between px-6 py-12 md:px-24 bg-gray-100">
@@ -360,5 +348,28 @@
   <p class="text-blue-500 font-semibold">istiaque.ahmed.833845761@gmail.com</p>
   <p class="text-sm text-gray-600 mt-2">Specialized in Android application development with Kotlin and Java</p>
 </footer>
+
+<!-- Place this at the end of body -->
+ <script>
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-nav-menu");
+    menu.classList.toggle("hidden");
+  }
+
+  // Close the mobile menu after clicking a link
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenu = document.getElementById("mobile-nav-menu");
+    const links = mobileMenu.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  });
+</script>
+
+
 </body>
 </html>
+
